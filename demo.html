@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Debounce Demo</title>
+  </head>
+  <body>
+    <h2>Search Delay Test</h2>
+    <p>
+      Type quickly below. The console will only log 2 seconds <i>after</i> you
+      stop typing.
+    </p>
+    <ul id="list">
+      <li>Apple</li>
+      <li>Mango</li>
+      <li>Banana</li>
+    </ul>
+
+    <script>
+      document.getElementById("list").addEventListener("click", (e) => {
+        if (e.target.tagName === "LI") {
+          console.log("Clicked:", e.target.innerText);
+        }
+      });
+    </script>
+
+    <!-- <input type="text" id="search" placeholder="Search for something..." />
+
+    <div id="status">Status: Waiting for input...</div> -->
+
+    <button id="btn">User Button of Throttle</button>
+
+    <!-- <script src="Debounce.js"></script> -->
+    <script src="Throttle.js"></script>
+  </body>
+</html>
