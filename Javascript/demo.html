@@ -1,0 +1,97 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  
+  <body>
+    <div class="">
+      <input
+        type="text"
+        name="search"
+        id="search-input"
+        placeholder="Enter the search here..."
+      />
+      <button id="btn" onclick="newFunction()">Submit</button>
+    </div>
+  </body>
+  <script>
+
+    // const mythrottle = (fn,delay) => {
+
+    //     return function(...args){
+    //         document.getElementById("btn").disabled = true
+    //         setTimeout(() => {
+    //             fn(...args)
+    //         }, delay);
+    //     }
+
+    // }
+
+
+    // const newFunction = mythrottle(() => {
+    //     document.getElementById("btn").disabled = false
+    //     console.log("user clicked")
+    // },3000)
+
+    // const debounce = (fn, delay) => {
+    //   let timer;
+    //   return function (...args) {
+    //     clearTimeout(timer);
+    //     timer = setTimeout(() => {
+    //       fn(...args);
+    //     }, delay);
+    //   };
+    // };
+
+    // const handleSearch = debounce((e) => {
+    //   console.log("Search for", e.target.value);
+    // }, 2000);
+
+    // const inputElement = document.getElementById("search-input")
+    // inputElement.addEventListener("input", handleSearch);
+
+    function debounce(fn,delay){
+      let timer;
+
+      return function(...args){
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            fn(...args)
+        }, delay);
+      }
+
+    }
+
+
+    const handleSearch = debounce((e)=> {
+      console.log(e?.target?.value, "Search for:")
+    },2000)
+
+    const inputElement = document.getElementById("search-input")
+
+    inputElement.addEventListener("input", handleSearch)
+
+
+
+    const myThrottle = (fn,delay) => {
+
+      return function(...args){
+        document.getElementById("btn").disabled = true
+        setTimeout(() => {
+            fn(...args)
+        }, delay);
+      }
+
+    }
+
+
+    const newFunction = myThrottle(() =>{
+      document.getElementById("btn").disabled = false
+              console.log("user clicked")
+
+    },2000)
+
+  </script>
+</html>
